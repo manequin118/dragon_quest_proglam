@@ -8,15 +8,19 @@ monster = Monster.new(name: "アークデーモン", hp: 210, offense: 140, defe
 
 puts "#{monster.name}が現れた！"
 
-loop {
+loop do
   brave.attack(monster)
   monster.attack(brave)
   puts "=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*="
   puts "【#{brave.name}】HP :#{brave.hp}"
   puts "【#{monster.name}】HP :#{monster.hp}"
   puts "=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*="
-  if monster.hp <= 0
-    puts "#{monster.name}をやっつけた！"
+  if monster.hp <= 0 || brave.hp <= 0
     break
   end
-}
+end
+if monster.hp <= 0
+  puts "#{monster.name}をやっつけた！"
+else
+  puts "#{brave.name}はしんだ！"
+end
