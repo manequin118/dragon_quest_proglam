@@ -10,14 +10,12 @@ puts "#{monster.name}が現れた！"
 
 loop do
   brave.attack(monster)
-  monster.attack(brave)
+  monster.attack(brave) if monster.hp > 0
   puts "=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*="
   puts "【#{brave.name}】HP :#{brave.hp}"
   puts "【#{monster.name}】HP :#{monster.hp}"
   puts "=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*="
-  if monster.hp <= 0 || brave.hp <= 0
-    break
-  end
+  break if monster.hp == 0 || brave.hp == 0
 end
 if monster.hp <= 0
   puts "#{monster.name}をやっつけた！"
